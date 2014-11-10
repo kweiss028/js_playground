@@ -5,7 +5,7 @@ $(document).ready(function(){
     $infoPoints.hover(
         function(){
             radiusStore = $(this).attr('r');
-            $(this).attr('class', 'active').attr('r', 2*radiusStore);
+            $(this).attr('class', 'active').attr('r', 6*radiusStore);
         },
         function(){
             var $this = $(this);
@@ -15,5 +15,6 @@ $(document).ready(function(){
             }).attr('r', radiusStore);
         }
     );
+
 
 });
