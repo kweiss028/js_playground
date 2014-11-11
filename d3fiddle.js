@@ -7,31 +7,35 @@
     var svg = d3.select("body").append("svg")
         .attr("width", 300).attr("height", 300);
 
-    svg.selectAll("path.petal").data(data)
+    var flower = svg.append("g");
+
+    flower.selectAll("path.petal").data(data)
         .enter()
         .append("path").attr("class", "petal")
-        .attr("d", petalPath).attr("fill", "#fa5");
+        .attr("d", petalPath).attr("fill", "#fa5")
+        .attr("transform", function(d) {
+            var phi = d*45;
+            return "rotate("+ phi +" 105 160)";
+        });
 
-    svg.selectAll("path.petal2").data(data)
+    flower.selectAll("path.petal2").data(data)
         .enter()
         .append("path").attr("class", "petal2")
-        .attr("d", petalPath).attr("fill", "#a5f");
+        .attr("d", petalPath).attr("fill", "#a5f")
+        .attr("transform", function(d) {
+            var phi = d*45 + 22.5;
+            return "rotate("+ phi +" 105 160)";
+        });
 
-    svg.append("circle").attr("cx", 105).attr("cy", 160).attr("r", 60);
+    flower.append("circle").attr("cx", 105).attr("cy", 160).attr("r", 60);
 
 
     var t0 = Date.now();
     d3.timer(function() {
         var delta = (Date.now() - t0);
 
-        svg.selectAll(".petal").attr("transform", function(d) {
-            var phi = d*45;
-            return "rotate("+ (phi+delta/300) +" 105 160)";
-        });
-
-        svg.selectAll(".petal2").attr("transform", function(d) {
-            var phi = d*45 + 22.5;
-            return "rotate("+ (phi+delta/300) +" 105 160)";
+        flower.attr("transform", function(d) {
+            return "rotate("+ delta/360 +" 105 160)";
         });
     });
 
