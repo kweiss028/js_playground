@@ -48,9 +48,8 @@
 // LOTUS FLOWER
 
     var petalData = [0,1,2,3,4,5,6,7];
-    var petalPath = "m "+(xCenter+15)+" "+(yCenter-40)+" 5-12 c0 0 6-12 " +
-        "1-21-1-2-4-4-7-7-6-5-10-7-13-15-3 8-7 10-13 " +
-        "15-3 3-6 4-7 7-6 9 1 21 1 21 l5 12";
+    var petalPath = "m "+(xCenter-16)+","+(yCenter-48)+
+        " l -8,-24 c -4,-24 24,-16 24,-42 c 0,26 28,12 24,42 l -8,24";
 
     var flower = svg.append("g");
 
@@ -72,8 +71,8 @@
             return "rotate("+ phi +" "+xCenter+" "+yCenter+")";
         });
 
-    flower.append("circle").attr("class", "lotus")
-        .attr("cx", xCenter).attr("cy", yCenter).attr("r", 60);
+    svg.append("circle").attr("class", "lotus")
+        .attr("cx", xCenter).attr("cy", yCenter).attr("r", 72);
 
 
 // animation

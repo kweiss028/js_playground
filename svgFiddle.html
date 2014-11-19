@@ -5,11 +5,21 @@
 <title>SVG Test</title>
 <style>
 svg {width:300px;height:300px;}
-svg path {stroke-width:3;stroke:#000}
+svg path {stroke-width:3;stroke:#000;}
 svg circle {fill:#af5;stroke-width:5;stroke:#000}
+svg line {stroke-width:1;stroke:red;}
 </style>
 </head>
 <body>
+
+<svg>
+    <path d="m100,120 5-12 c0 0 6-12
+        1-21-1-2-4-4-7-7-6-5-10-7-13-15-3 8-7 10-13
+        15-3 3-6 4-7 7-6 9 1 21 1 21 l5 12"></path>
+    <path d="M 120,120 l -8,-24 c -4,-24 24,-16 24,-42 c 0,26 28,12 24,42 l -8,24" ></path>
+    <line x1="136" y1="60" x2="136" y2="120"></line>
+    <polygon fill="red" points="120,120 152,120 136,168"></polygon>
+</svg>
 
 <script type="text/javascript" src="d3.min.js"></script>
 <script type="text/javascript" src="d3fiddle.js"></script>
